@@ -7,11 +7,15 @@
 {% block title %} Gan's Blog - Article Detail {% endblock %}
 
 {% block body %} 
+
+{% load markdown_deux_tags %}
+
+
 <div class="blog-template">
 	{% if article %}
 	<h1>{{ article.subject }}</h1>
 	<p class="lead">
-		{{ article.contents }}
+		{{ article.contents|markdown }}
 	</p>
 	{% else %}
 	<p class="lead"> Invalid article, please click valid articlee. </p>
