@@ -1,0 +1,22 @@
+
+{% extends "blog/blog_base.html" %}
+
+{% block css %}{% endblock %}
+
+<!--write just string-->
+{% block title %} Gan's Blog - Article Detail {% endblock %}
+
+{% block body %} 
+<div class="blog-template">
+	{% if article %}
+	<h1>{{ article.subject }}</h1>
+	<p class="lead">
+		{{ article.contents }}
+	</p>
+	{% else %}
+	<p class="lead"> Invalid article, please click valid articlee. </p>
+	{% endif %}
+</div>
+{% endblock %}
+
+{% block js %} {% endblock %}

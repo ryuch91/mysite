@@ -1,0 +1,40 @@
+
+{% extends "polls/base.html" %}
+
+{% block css %} 
+	<link href="../../static/polls/survey_list.css" rel="stylesheet">
+	<link href="../../static/polls/jumbotron-narrow.css" rel="stylesheet">
+{% endblock %}
+
+{% block title %} 
+	Survey List
+{% endblock %}
+
+{% block header %} 
+	<ul class="nav nav-pills pull-right">
+		<li><a href="#">LOGIN</a></li>
+	</ul>
+	<h3 class="text-muted"> Polls </h3>
+{% endblock %}
+
+{% block jumbotron %}
+	{% if survey_list %}
+	<ul>
+		{% for survey in survey_list %}
+		<li>
+			<a href="/polls/{{ survey.id}}/"> 
+				<p class="lead"> {{ survey.title }} -- {{survey.pub_date.date}} </p>
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+	{% else %}
+	<p class="lead">No polls are available. </p>
+	{% endif %}
+{% endblock %}
+
+
+{% block row %} {% endblock %}
+
+
+{% block js %} {% endblock %}

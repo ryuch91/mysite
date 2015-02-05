@@ -1,0 +1,49 @@
+
+{% extends "blog/blog_base.html" %}
+
+{% block css %}{% endblock %}
+
+<!--write just string-->
+{% block title %} Gan's Blog - Article List {% endblock %}
+
+{% block body %} 
+<div class="blog-template">
+	<div class="row">
+		{% if article_list %}
+			<div class="col-sm-12 blog-main">
+				{% for article in article_list %}
+					<div class="blog-post">
+						<h4 class="blog-post-title"> 
+							<a href="/blog/article/{{article.pk}}"> {{ article.subject }} </a> 
+						</h2>
+						<p class="blog-post-meta"> {{ article.written_at.date }} by {{ article.writer }} </p>
+						<p> {{ article.contents }} </p>
+					</div>
+				{% endfor %}
+			</div>
+		{% else %}
+			<p class="lead"> No avaliable article. <p>
+		{% endif %}
+
+		<!--Pagination-->
+		{% if is_paginated %}
+			<div class="pagination">
+				<span class="page-links">
+					{% if page_obj.has_previous %}
+						<a href="#"> previous </a>
+					{% endif %}
+					<span class="page-current">
+						Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+					</span>
+					{% if page_obj.has_next %}
+						<a href="#"> next </a>
+					{% endif %}
+				</span>
+			</div>
+		{% endif %}
+		
+	</div>
+</div>
+{% endblock %}
+
+{% block js %} {% endblock %}

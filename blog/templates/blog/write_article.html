@@ -1,0 +1,25 @@
+
+{% extends "blog/blog_base.html" %}
+
+{% block css %}{% endblock %}
+
+<!--write just string-->
+{% block title %} Gan's Blog - Write Article Mode {% endblock %}
+
+{% block body %} 
+<div class="col-xs-12">
+	<form role="form" method="post">
+		{% csrf_token %}
+		subject: <input type="text" class="form-control" name="subject" id="write_subject">
+		included at : <select class="form-control" name="included_at" id="write_category">
+			{% for category in category_list %}
+			<option value="{{ category }}">{{ category.title }}</option>
+			{% endfor %}
+		</select>
+		contents: <textarea class="form-control" name="contents" rows=15></textarea>
+		<input type="submit" class="form-control" id="write_button"  value="Write">
+	</form>
+</div>
+{% endblock %}
+
+{% block js %} {% endblock %}

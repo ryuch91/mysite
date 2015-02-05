@@ -1,0 +1,19 @@
+body {
+	padding-top: 50px;
+}
+.starter-template {
+	padding: 40px 15px;
+	text-align: center;
+}
+
+.blog-template {
+	padding: 30px 15px;
+	text-align: left;
+}
+
+/* to align search button at top navigator */
+.input-group{
+	float: right;
+	padding-top: 8px;
+	width: 200px;
+}

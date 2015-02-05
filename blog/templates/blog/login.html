@@ -1,0 +1,45 @@
+
+{% extends "blog/blog_base.html" %}
+
+{% block css %}{% endblock %}
+
+<!--write just string-->
+{% block title %} Gan's Blog  - Login {% endblock %}
+
+{% block body %} 
+<div class="blog-template" id="login">
+	<div id="login_box">
+		{% if errors %}
+		{{ errors }}
+		{% endif %}
+		{% if form.errors %}
+		<p class="lead"> Somthings are missing. Please fill again.</p>
+		{% endif %}
+		<form role="form" method="post" action="/blog/login/">
+			{% csrf_token %}
+			<label for="username"> Username: </label>
+			<input type="text" name="username" class="form-control">
+			<label for="password"> Password: </label>
+			<input type="password" name="password" class="form-control">
+
+			<div>
+				<label for="session_check"> remember me? </label>
+				<input type="checkbox" name="session_check" class=""> 
+			</div>
+			<input type="submit" onclick="clicked(event)" class="btn btn-default" value="Log-In">
+			{% if next %}
+			<input type="hidden" name="next" value="{{ next }}">
+			{% endif %}
+		</form>
+	</div>
+</div>
+{% endblock %}
+
+{% block js %} 
+<script type="text/javascript">
+	function clicked(e)
+	{
+		if(!confirm("Do you want to continue?"))e.preventDefault();
+	}
+</script>
+{% endblock %}

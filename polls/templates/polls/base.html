@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load staticfiles %}
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<!--bootstrap core CSS -->
+		<link rel="stylesheet" type="text/css" href="{% static 'polls/dist/css/bootstrap.css' %}" media="screen"/>
+		<!--custom styles for this template -->
+		{% block css %}{% endblock %}
+
+		<title>{% block title %}Gan's Site{% endblock %}</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="header">
+				{% block header %} {% endblock %}
+			</div>
+
+			<div class="jumbotron">
+				{% block jumbotron %}{% endblock %}
+			</div>
+
+			<div class="row marketing">
+				{% block row %} {% endblock %}
+			</div>
+		</div>
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+
+	<!--for JavaScript-->
+	<script src="{% static 'polls/assets/js/jquery.js' %}"></script>
+	<script src="{% static 'polls/dist/js/bootstrap.min.js' %}"></script>
+
+	{% block js %}{% endblock %}
+
+	<!--for old IE-->
+	</body>
+</html>	

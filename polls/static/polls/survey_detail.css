@@ -1,0 +1,15 @@
+body {
+	padding-top: 50px;
+}
+
+.form-control {
+	width: 50%;
+}
+
+#submit-button {
+	float: right;
+}
+
+.input-group {
+	margin-bottom: 20px;
+}

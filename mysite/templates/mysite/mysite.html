@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load staticfiles %}
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+   		<meta name="author" content="">
+ 		<!-- Bootstrap core CSS -->
+    		<link rel="stylesheet" type="text/css" href="{% static 'mysite/dist/css/bootstrap.css' %}" media="screen"/>
+
+    		<!-- Custom styles for this template -->
+		<link href="{% static 'mysite/mysite.css' %}" rel="stylesheet">
+		<link href="{% static 'mysite/simple-sidebar.css' %}" rel="stylesheet">
+		<title> Gan's Test Blog</title>
+	</head>
+
+	<body>
+		<!-- for top navigation bar -->
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			
+			<!-- Top Navbar -->
+			<div class="container">
+				<div class="navbar-header">
+					<a type="button" href="#menu-toggle" class="navbar-brand btn btn-deafult btn-lg" id="menu-toggle">
+						<span class="glyphicon glyphicon-align-justify"></span>
+					</a>
+					<a class="navbar-brand" href="#">GAN's BLOG</a>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse">
+          					<ul class="nav navbar-nav">
+          						<li class="active"><a href="#">Home</a></li>
+        	    					<li><a href="#about">About</a></li>
+            						<li><a href="#recent">Recent</a></li>
+            						<li><a href="#whois">Who is Gan?</a></li>
+          					</ul>
+          					<!--search button-->
+	        				<div class="input-group">
+	        					<input type="text" class="form-control">
+	        					<span class="input-group-btn">
+	        						<button class="btn btn-default" type="button">
+	        							<span class="glyphicon glyphicon-search"></span>
+	        						</button>
+	        					</span>
+	        				</div>
+	        				<!--/search button-->
+        				</div><!--/.nav-collapse -->
+      			</div>
+    		</div>
+		
+		<div id="wrapper" class="toggled">
+			<!-- Sidebar -->
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav">
+					<li class="sidebar-brand"><a href="#">Article Category</a></li>
+					{% for category in category_list %}
+						<li>{{ category.title }}</li>
+					{% endfor %}
+				</ul>
+			</div><!-- /#sidebar-->
+
+			<!-- Page Content -->
+			<div id="page-content-wrapper">
+
+				<!-- for main body of my blog -->
+		    		<div class="container">
+		    			<div class="blog-template" name="about">
+		    				<h1>About This Blog</h1>
+		    				<p class="lead">This Blog is for testing Gan's development.<br> Using Linux-Ubuntu, Sublime Text2, Python2.7, Django1.7, Bootstrap 3.0, jQuery, HTML5, etc.</p>
+		    			</div>
+
+		    			<div class="blog-template" name="recent">
+		    				<h1>Recent Articles</h1>
+		    				<ul>
+		    					{% for article in latest_article_list %}
+		    						<li>{{ article.subject}} </li>
+		    					{% endfor %}
+		    				</ul>
+		    			</div>
+
+		    			<div class="blog-template" name="whois">
+		    				<h1>Who is GAN</h1>
+		    				<p class="lead"> He is a beginner of web development. </p>
+		    			</div>
+		      		</div><!-- /.container -->
+			</div><!-- /Page Content -->
+		</div>
+		
+
+		<!-- Bootstrap core JavaScript
+		    ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+
+	<!--for JavaScript-->
+	<script src="{% static 'mysite/assets/js/jquery.js' %}"></script>
+	<script src="{% static 'mysite/dist/js/bootstrap.min.js' %}"></script>
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+
+	<!--for old IE-->
+
+	</body>
+</html>
