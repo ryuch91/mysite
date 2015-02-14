@@ -1,7 +1,18 @@
 # coding: utf-8
 
+
+
+#Django
 from django.contrib import admin
+
+#WYSIWYG
+
+#Project
 from blog.models import Article, Category
+
+
+
+
 # Register your models here.
 
 #Help to identify for administrate article (for using id, date or any)

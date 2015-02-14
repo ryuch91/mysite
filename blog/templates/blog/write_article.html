@@ -17,10 +17,17 @@
 			<option value="{{ category }}">{{ category.title }}</option>
 			{% endfor %}
 		</select>
-		contents: <textarea class="form-control" name="contents" rows=15></textarea>
+		contents: <textarea class="form-control" id="contents" name="contents" rows=15></textarea>
 		<input type="submit" class="form-control" id="write_button"  value="Write">
 	</form>
 </div>
 {% endblock %}
 
-{% block js %} {% endblock %}
+{% block js %}
+<script>
+	/***When document is ready, open summernote to edit contents ****/
+	$(document).ready(function() {
+		$('#contents').summernote();
+	})
+</script>
+ {% endblock %}

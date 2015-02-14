@@ -15,7 +15,7 @@ class WriteArticleForm(forms.Form):
 
 	included_at = forms.ChoiceField(choices=category_choices)
 	subject = forms.CharField(max_length=50)
-	contents = forms.CharField(max_length=2000, widget=forms.Textarea)
+	contents = forms.CharField(widget=forms.Textarea)
 
 	def write_article(self, post):
 		article = Article()
@@ -23,6 +23,7 @@ class WriteArticleForm(forms.Form):
 			article.included_at = Category.objects.filter(title=self.cleaned_data['included_at'])[0]
 		article.subject = self.cleaned_data['subject']
 		article.contents = self.cleaned_data['contents']
+		print article.contents
 
 		article.save()
 

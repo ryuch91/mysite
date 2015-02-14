@@ -36,9 +36,15 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #external apps
+    'rest_framework',
+    'django_summernote',
     'markdown_deux',
     'dajaxice',
     'dajax',
+
+    #my apps
     'blog',
     'polls',
     'homepage',
@@ -99,3 +105,14 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 MEDIA_URL = '/media/'
 
+
+
+#Rest_framework
+# http://www.django-rest-framework.org/
+REST_FRAMEWORK = {
+    # Use  Django's standard  'django.contrib.auth' permission,
+    # or allow read-only  access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}

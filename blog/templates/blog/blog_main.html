@@ -17,7 +17,7 @@
 							<a href="/blog/article/{{article.pk}}"> {{ article.subject }} </a> 
 						</h2>
 						<p class="blog-post-meta"> {{ article.written_at.date }} by {{ article.writer }} </p>
-						<p> {{ article.contents }} </p>
+						<p> {{ article.contents|safe }} </p>
 					</div>
 				{% endfor %}
 

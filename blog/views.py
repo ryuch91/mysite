@@ -109,7 +109,7 @@ class WriteArticleView(FormView):
 	template_name = 'blog/write_article.html'
 	success_url = '/blog/'
 
-	@method_decorator(permission_required('blog.add_article'))
+	@method_decorator(permission_required('blog.add_article', login_url='/blog/login/'))
 	def dispatch(self, *args, **kwargs):
 		return super(WriteArticleView, self).dispatch(*args, **kwargs)
 

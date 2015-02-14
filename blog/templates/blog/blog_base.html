@@ -10,9 +10,16 @@
  		<!-- Bootstrap core CSS -->
     		<link rel="stylesheet" type="text/css" href="{% static 'blog/dist/css/bootstrap.css' %}" media="screen"/>
 
+    		<!-- For using summernote(post editor) -->
+		<link href="{% static 'blog/summernote.css' %}" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
     		<!-- Custom styles for this template -->
 		<link href="{% static 'blog/blog-main.css' %}" rel="stylesheet">
 		<link href="{% static 'blog/simple-sidebar.css' %}" rel="stylesheet">
+
+
+
 		{% block css %}{% endblock %}
 
 		<title> {% block title %} Gan's Test Blog {% endblock %} </title>
@@ -135,6 +142,8 @@
 	<!--for JavaScript-->
 	<script src="{% static 'blog/assets/js/jquery.js' %}"></script>
 	<script src="{% static 'blog/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'blog/assets/js/summernote.min.js' %}"></script>
+
 
 	<script>
 		/* Menu Toggle Script (For Side Navbar) */
