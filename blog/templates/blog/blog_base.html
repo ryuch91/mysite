@@ -126,39 +126,42 @@
 		    			{% endblock %}
 		      		</div><!-- /.container -->
 			</div><!-- /Page Content -->
+
 		</div>
 
-	<!--Blog footer-->
-	<footer class="blog-footer">
-		<p>"Blog built by @GAN"</p>
-		<p> Please add more footer. </p>
-	</footer>
+		<!--Blog footer-->
+		<footer class="footer blog-footer">
+			<div class="container">
+				<p>"Blog built by @GAN"</p>
+				<p> Please add more footer. </p>
+			</div>
+		</footer>
 		
 
 		<!-- Bootstrap core JavaScript
 		    ================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 
-	<!--for JavaScript-->
-	<script src="{% static 'blog/assets/js/jquery.js' %}"></script>
-	<script src="{% static 'blog/dist/js/bootstrap.min.js' %}"></script>
-	<script src="{% static 'blog/assets/js/summernote.min.js' %}"></script>
+		<!--for JavaScript-->
+		<script src="{% static 'blog/assets/js/jquery.js' %}"></script>
+		<script src="{% static 'blog/dist/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'blog/assets/js/summernote.min.js' %}"></script>
 
 
-	<script>
-		/* Menu Toggle Script (For Side Navbar) */
-		$("#menu-toggle").click(function(e) {
-			e.preventDefault();
-			$("#wrapper").toggleClass("toggled");
-		});
-		/* Log-out Alert Window */
-		$("#logout").click(function(e){
-			if(!confirm("Do you really want to log-out?"))
+		<script>
+			/* Menu Toggle Script (For Side Navbar) */
+			$("#menu-toggle").click(function(e) {
 				e.preventDefault();
-		});
-	</script>
-	{% block js %} {% endblock %}
-	<!--for old IE-->
+				$("#wrapper").toggleClass("toggled");
+			});
+			/* Log-out Alert Window */
+			$("#logout").click(function(e){
+				if(!confirm("Do you really want to log-out?"))
+					e.preventDefault();
+			});
+		</script>
+		{% block js %} {% endblock %}
+		<!--for old IE-->
 
 	</body>
 </html>

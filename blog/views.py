@@ -19,7 +19,10 @@ from django.views.generic.detail import SingleObjectMixin
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 
-#Project
+# External
+from rest_framework.pagination import PaginationSerializer
+
+# Project
 from .models import *
 from .forms import *
 
@@ -167,6 +170,6 @@ class ArticleSearchView(ListView):
 			Q(subject__contains=self.request.GET['search_content'])
 			|Q(writer__contains=self.request.GET['search_content'])
 			|Q(contents__contains=self.request.GET['search_content'])
-		)
+		).order_by('-written_at')
 		return context
 

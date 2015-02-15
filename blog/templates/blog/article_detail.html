@@ -8,17 +8,15 @@
 
 {% block body %} 
 
-{% load markdown_deux_tags %}
-
 
 <div class="blog-template">
 	{% if article %}
 	<h1>{{ article.subject }}</h1>
 	<p class="lead">
-		{{ article.contents|markdown }}
+		{{ article.contents|safe }}
 	</p>
 	{% else %}
-	<p class="lead"> Invalid article, please click valid articlee. </p>
+	<p class="lead"> Invalid article, please click valid article. </p>
 	{% endif %}
 </div>
 {% endblock %}
